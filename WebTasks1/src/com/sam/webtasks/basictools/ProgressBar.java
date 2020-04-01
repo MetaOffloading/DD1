@@ -1,6 +1,7 @@
 package com.sam.webtasks.basictools;
 
 import com.google.gwt.dom.client.Element;
+import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.HasHorizontalAlignment;
 import com.google.gwt.user.client.ui.RootPanel;
@@ -37,7 +38,7 @@ public class ProgressBar extends HTML
     }
     
     public static void Initialise() {
-    	WebTasks.progressBarPanel.setWidth("100%");
+    	WebTasks.progressBarPanel.setWidth(Window.getClientWidth() + "px");
     	WebTasks.progressBarPanel.setHorizontalAlignment(HasHorizontalAlignment.ALIGN_CENTER);
     	WebTasks.progressBar.setWidth("200px");
     	WebTasks.progressBarPanel.add(WebTasks.progressBar);

@@ -61,12 +61,7 @@ public class SequenceHandler {
 			 * The code here defines the main sequence of events in the experiment *
 			 ********************************************************************/		
 			case 1:
-				int ID = Integer.parseInt(SessionInfo.participantID);
-				Counterbalance.setCounterbalancingFactors(ID % 4);
-						
-				String data = Counterbalance.getFactorLevel("colourMeaning") + ",";
-				data = data + Counterbalance.getFactorLevel("conditionOrder") + ",";
-				data = data + TimeStamp.Now();
+				String data = "" + TimeStamp.Now();
 				
 				RootPanel.get().clear();
 				
@@ -528,6 +523,11 @@ public class SequenceHandler {
 		if (init) { // go the beginning of the sequence if init is true
 			sequencePosition.set(whichLoop, 0);
 		}
+	}
+	
+	// get current loop
+	public static int GetLoop() {
+		return (whichLoop);
 	}
 
 	// set a new position
