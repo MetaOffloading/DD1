@@ -85,6 +85,7 @@ public class IOtask2RunTrial {
 		};
 
 		ProgressBar.SetProgress(Params.progress++, (2 * Params.nTrials) + 1);
+		PHP.logData("payment",  IOtask2BlockContext.getMoneyString(), false);
 
 		// get block context
 		IOtask2Block block = IOtask2BlockContext.getContext();
@@ -830,6 +831,9 @@ public class IOtask2RunTrial {
 						if (IOtask2BlockContext.getDoubleClickFlag()) {
 							RootPanel.get().remove(verticalPanel);
 							IOtask2BlockContext.incrementCurrentTrial();
+							
+							//pretend that there were 10 hits
+							IOtask2BlockContext.setnHits(10);
 
 							trialTimer.cancel();
 							IOtask2BlockContext.setCountdownTime(Params.countdownTime);

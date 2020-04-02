@@ -27,7 +27,7 @@ public class Instructions {
 		case 0:
 			i = "In this experiment you will have a simple task to do.<br><br>"
 					+ "You will see several yellow circles inside a box. Inside each circle will be a number. <br><br>"
-					+ "You can move them around with your finger. Your task is to drag them to the bottom of the box in sequence.<br><br>"
+					+ "You can move them around with your mouse. Your task is to drag them to the bottom of the box in sequence.<br><br>"
 					+ " Please start by dragging 1 all the way to the bottom. This will make it disappear. <br><br>"
 					+ "Then drag 2 to the bottom, then 3, and so on.";
 			break;
@@ -53,8 +53,8 @@ public class Instructions {
 					+ " you will score <b>10</b> points. But you will only score <b>1</b> point for dragging a <b>" + lowVal + "</b> circle "
 					+ "to the " + lowValLoc + ".<br><br>However, any time you drag an incorrect circle to the left or right, you will lose 1 point.<br><br>"
 							+ "These points are worth real money. Your payment at the end of the experiment "
-					+ "will be based on how many points you score. You will be paid £1 for every " + Params.pointsPerPound + " points.<br><br>"
-					+ "This means that you can earn over £9 for this experiment if you remember all the circles. <br><br>Click below to continue.";
+					+ "will be based on how many points you score. You will be paid $1 for every " + Params.pointsPerPound + " points.<br><br>"
+					+ "This means that you can earn over $9 for this experiment if you remember all the circles. <br><br>Click below to continue.";
 			break;
 		case 4:
 			i = "Now we are going to explain a strategy that can help you remember the " + highVal + " circles.<br><br>"
@@ -78,7 +78,7 @@ public class Instructions {
 
 		case 6:
 			i = "Now the experiment will begin for real. The more points you score, the more money you will earn.<br><br>"
-					+ "You will start with an initial payment of £2 and earn additional money in addition to this."
+					+ "You will start with an initial payment of $2 and earn additional money in addition to this."
 					+ " Click below to start."; 
 			break;
 			

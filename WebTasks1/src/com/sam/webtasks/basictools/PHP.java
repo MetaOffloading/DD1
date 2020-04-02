@@ -201,7 +201,7 @@ public class PHP {
 		postData = postData + "&version=" + SessionInfo.experimentVersion;
 		postData = postData + "&status=" + newStatus;
 
-		phpOutput = null;
+		phpOutput = "";
 		Post("updateStatus.php", postData, true);
 
 		timeCounter = 1;

@@ -235,7 +235,7 @@ public class SequenceHandler {
 				//add progress bar to screen
 				ProgressBar.Initialise();
 				ProgressBar.Show();
-				ProgressBar.SetProgress(0,  (2*Params.nTrials)-1);
+				ProgressBar.SetProgress(0,  (2*Params.nTrials)-2);
 				Params.progress=0;
 				
 				IOtask2Block block7 = new IOtask2Block();
@@ -360,6 +360,9 @@ public class SequenceHandler {
 				PHP.logData("finish", d, true);
 				break;
 			case 20:
+				PHP.UpdateStatus("finished");
+				break;
+			case 21:
 				Finish.Run();
 				break;
 				   
@@ -415,6 +418,14 @@ public class SequenceHandler {
 				}
 				break;
 			case 8:
+				//record the participant's counterbalancing condition in the status table				
+				if (!SessionInfo.resume) {
+					PHP.UpdateStatus("" + Counterbalance.getCounterbalancingCell());
+				} else {
+					SequenceHandler.Next();
+				}
+				break;
+			case 9:
 				SequenceHandler.SetLoop(0, true); // switch to and initialise the main loop
 				SequenceHandler.Next(); // start the loop
 				break;

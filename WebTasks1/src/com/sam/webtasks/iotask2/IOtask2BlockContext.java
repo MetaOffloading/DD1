@@ -58,7 +58,7 @@ public class IOtask2BlockContext {
 		int nPounds = nPence / 100;
 		int nRemainderPence = nPence % 100;
 		
-		String money = "£" + nPounds + ".";
+		String money = "$" + nPounds + ".";
 		
 		if (nRemainderPence < 10) {
 			money = money + "0" + nRemainderPence;
@@ -229,6 +229,10 @@ public class IOtask2BlockContext {
 				blockContext.totalPoints += blockContext.actualPoints;
 			}
 		}
+	}
+	
+	public static void incrementPoints(int nPoints) {
+		blockContext.totalPoints += nPoints;
 	}
 	
 	public static void decrementPoints() {

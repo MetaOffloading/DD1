@@ -13,7 +13,7 @@ public class SessionInfo {
 	public static int experimentType = Names.EXPERIMENT_MTURK;
 	
 	//what is the name for this experiment?
-	public static String experimentCode="QZ3";
+	public static String experimentCode="DD1";
 	
 	//which version of the experiment is this?
 	public static int experimentVersion=1; 
@@ -51,6 +51,11 @@ public class SessionInfo {
 	/*************************************************/
 	
 	//participant info variables
+	public static boolean resume=false;      //is this a resumption of an earlier session?
+	public static String status="";          //status loaded from the database
+	public static int resumePosition=0;      //what position should we resume from, if the participant comes back?
+	public static int resumeProgress=0;      //what should the progress bar be set to if we resume?
+	public static int resumePoints=0;        //if we are scoring points, what number of points should we resume from?
 	public static int gender;
 	public static int age;
 	public static String participantID;
