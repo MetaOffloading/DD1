@@ -147,10 +147,10 @@ public class SequenceHandler {
 				block4.countdownTimer = true;
 				
 				if (Counterbalance.getFactorLevel("colourMeaning") == ExtraNames.BLUE_HIGHVAL) {
-					block4.pointValues = new int[] {0,10,1,0};
+					block4.pointValues = new int[] {0,Params.highValuePoints,Params.lowValuePoints,0};
 					
 				} else {
-					block4.pointValues = new int[] {0,1,10,0}; 
+					block4.pointValues = new int[] {0,Params.lowValuePoints,Params.highValuePoints,0}; 
 				}
 
 				
@@ -178,10 +178,10 @@ public class SequenceHandler {
 				block5.countdownTimer = true;
 				
 				if (Counterbalance.getFactorLevel("colourMeaning") == ExtraNames.BLUE_HIGHVAL) {
-					block5.pointValues = new int[] {0,10,1,0};
+					block5.pointValues = new int[] {0,Params.highValuePoints,Params.lowValuePoints,0};
 					block5.moveableSides = new boolean[] {false,true,false,false};
 				} else {
-					block5.pointValues = new int[] {0,1,10,0}; 
+					block5.pointValues = new int[] {0,Params.lowValuePoints,Params.highValuePoints,0}; 
 					block5.moveableSides = new boolean[] {false,false,true,false};
 				}
 				
@@ -194,7 +194,18 @@ public class SequenceHandler {
 				block5.Run();
 				break;
 			case 12:
-				ClickPage.Run(Instructions.Get(5), "Next");
+				if (Counterbalance.getFactorLevel("conditionOrder") == ExtraNames.OFFLOAD_FIRST) {
+					if (IOtask2BlockContext.getHighValHits() < 5) {
+						SequenceHandler.SetPosition(SequenceHandler.GetPosition()-2);
+						ProgressBar.Decrement();
+						ProgressBar.Decrement();
+						ClickPage.Run(Instructions.Get(8), "Next");
+					} else {
+						ClickPage.Run(Instructions.Get(5), "Next");
+					}
+				} else {
+					ClickPage.Run(Instructions.Get(5), "Next");
+				}
 				break;
 			case 13:
 				IOtask2Block block6 = new IOtask2Block();
@@ -211,10 +222,10 @@ public class SequenceHandler {
 				block6.countdownTimer=true;
 				
 				if (Counterbalance.getFactorLevel("colourMeaning") == ExtraNames.BLUE_HIGHVAL) {
-					block6.pointValues = new int[] {0,10,1,0};
+					block6.pointValues = new int[] {0,Params.highValuePoints,Params.lowValuePoints,0};
 					block6.moveableSides = new boolean[] {false,true,false,false};
 				} else {
-					block6.pointValues = new int[] {0,1,10,0}; 
+					block6.pointValues = new int[] {0,Params.lowValuePoints,Params.highValuePoints,0}; 
 					block6.moveableSides = new boolean[] {false,false,true,false};
 				}
 				
@@ -252,10 +263,10 @@ public class SequenceHandler {
 				block7.countdownTimer = true;
 				
 				if (Counterbalance.getFactorLevel("colourMeaning") == ExtraNames.BLUE_HIGHVAL) {
-					block7.pointValues = new int[] {0,10,1,0};
+					block7.pointValues = new int[] {0,Params.highValuePoints,Params.lowValuePoints,0};
 					block7.moveableSides = new boolean[] {false,true,false,false};
 				} else {
-					block7.pointValues = new int[] {0,1,10,0}; 
+					block7.pointValues = new int[] {0,Params.lowValuePoints,Params.highValuePoints,0}; 
 					block7.moveableSides = new boolean[] {false,false,true,false};
 				}
 				
@@ -297,10 +308,10 @@ public class SequenceHandler {
 				block8.countdownTimer = true;
 				
 				if (Counterbalance.getFactorLevel("colourMeaning") == ExtraNames.BLUE_HIGHVAL) {
-					block8.pointValues = new int[] {0,10,1,0};
+					block8.pointValues = new int[] {0,Params.highValuePoints,Params.lowValuePoints,0};
 					block8.moveableSides = new boolean[] {false,true,false,false};
 				} else {
-					block8.pointValues = new int[] {0,1,10,0}; 
+					block8.pointValues = new int[] {0,Params.lowValuePoints,Params.highValuePoints,0}; 
 					block8.moveableSides = new boolean[] {false,false,true,false};
 				}
 				
@@ -313,6 +324,20 @@ public class SequenceHandler {
 				block8.Run();
 				break;
 			case 18:
+				if (Counterbalance.getFactorLevel("conditionOrder") == ExtraNames.OFFLOAD_SECOND) {
+					if (IOtask2BlockContext.getHighValHits() < 5) {
+						ProgressBar.Decrement();
+						ProgressBar.Decrement();
+						SequenceHandler.SetPosition(SequenceHandler.GetPosition()-2);
+						ClickPage.Run(Instructions.Get(8), "Next");
+					} else {
+						SequenceHandler.Next();
+					}
+				} else {
+					SequenceHandler.Next();
+				}
+				break;
+			case 19:
 				IOtask2Block block10 = new IOtask2Block();
 				block10.logDragData=true; //log trial-by-trial data to the database
 				block10.blockNum = 10;
@@ -327,10 +352,10 @@ public class SequenceHandler {
 				block10.countdownTimer = true;
 				
 				if (Counterbalance.getFactorLevel("colourMeaning") == ExtraNames.BLUE_HIGHVAL) {
-					block10.pointValues = new int[] {0,10,1,0};
+					block10.pointValues = new int[] {0,Params.highValuePoints,Params.lowValuePoints,0};
 					block10.moveableSides = new boolean[] {false,true,false,false};
 				} else {
-					block10.pointValues = new int[] {0,1,10,0}; 
+					block10.pointValues = new int[] {0,Params.lowValuePoints,Params.highValuePoints,0}; 
 					block10.moveableSides = new boolean[] {false,false,true,false};
 				}
 				
@@ -351,7 +376,7 @@ public class SequenceHandler {
 				
 				block10.Run();
 				break;
-			case 19:
+			case 20:
 				String d = Counterbalance.getFactorLevel("colourMeaning") + ",";
 				d = d + Counterbalance.getFactorLevel("conditionOrder") + ",";
 				d = d + IOtask2BlockContext.getMoneyString() + ",";
@@ -359,10 +384,10 @@ public class SequenceHandler {
 
 				PHP.logData("finish", d, true);
 				break;
-			case 20:
+			case 21:
 				PHP.UpdateStatus("finished");
 				break;
-			case 21:
+			case 22:
 				Finish.Run();
 				break;
 				   

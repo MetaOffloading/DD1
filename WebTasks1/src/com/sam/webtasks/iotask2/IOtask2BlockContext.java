@@ -222,6 +222,10 @@ public class IOtask2BlockContext {
 	public static void incrementHits() {
 		blockContext.nHits++;
 		
+		if (blockContext.pointValues[blockContext.exitFlag] == Params.highValuePoints) {
+			blockContext.nHighValHits++;
+		}
+		
 		if (blockContext.scorePoints) {
 			if (blockContext.variablePoints) {
 				blockContext.totalPoints += blockContext.pointValues[blockContext.exitFlag];
@@ -229,6 +233,10 @@ public class IOtask2BlockContext {
 				blockContext.totalPoints += blockContext.actualPoints;
 			}
 		}
+	}
+	
+	public static int getHighValHits() {
+		return (blockContext.nHighValHits);
 	}
 	
 	public static void incrementPoints(int nPoints) {

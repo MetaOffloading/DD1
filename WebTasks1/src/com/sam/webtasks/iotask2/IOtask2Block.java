@@ -318,6 +318,9 @@ public class IOtask2Block {
 
 	// how many hits (just considering the most recent trial)
 	public int nHits = 0;
+	
+	// how many high-value hits?
+	public int nHighValHits = 0;
 
 	// did the participant choose to set reminders (1) or not (0)?
 	public int reminderChoice = -1;

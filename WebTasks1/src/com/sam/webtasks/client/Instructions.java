@@ -50,7 +50,7 @@ public class Instructions {
 			i = "From now on, you will score points every time you drag one of the special circles to the correct location.<br><br>"
 					+ "The <b>" + highVal + "</b> circles are worth more than the <b>" + lowVal
 					+ "</b> circles. Every time you drag a <b>" + highVal + "</b> circle to the " + highValLoc
-					+ " you will score <b>10</b> points. But you will only score <b>1</b> point for dragging a <b>" + lowVal + "</b> circle "
+					+ " you will score <b>" + Params.highValuePoints + "</b> points. But you will only score <b>" + Params.lowValuePoints + "</b> points for dragging a <b>" + lowVal + "</b> circle "
 					+ "to the " + lowValLoc + ".<br><br>However, any time you drag an incorrect circle to the left or right, you will lose 1 point.<br><br>"
 							+ "These points are worth real money. Your payment at the end of the experiment "
 					+ "will be based on how many points you score. You will be paid $1 for every " + Params.pointsPerPound + " points.<br><br>"
@@ -85,6 +85,14 @@ public class Instructions {
 		case 7:
 			i = "From this point onwards you will not be able to set reminders any more.<br><br>You will have to do the task "
 					+ "just using your own memory.";
+			break;
+			
+		case 8:
+			i = "You did not use the strategy to help you remember the " + highVal + " circles.<br><br>"
+					+ "As soon as you see a " + highVal + " circle, you can set a reminder by immediately dragging it next to the " + highVal + " edge of the box. "
+					+ "Then, when you get to that circle in the sequence its location would remind you where it is supposed to go.<br><br>"
+					+ "You will be able to do this for " + highVal + " circles, but not " + lowVal + " ones."
+					+ "<br><br>Please now try the task again, using this strategy to help you.";
 			break;
 		}
 

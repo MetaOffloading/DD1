@@ -9,4 +9,6 @@ public class Params {
 	public final static int pointsPerPound = 100;
 	public static int progress = 0;
 	public static int countdownTime = 150;
+	public static int highValuePoints = 8;
+	public static int lowValuePoints = 2;
 }

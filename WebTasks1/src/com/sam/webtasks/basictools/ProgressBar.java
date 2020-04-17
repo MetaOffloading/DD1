@@ -25,6 +25,15 @@ public class ProgressBar extends HTML
         progressElement.setAttribute("value", String.valueOf(value));
         progressElement.setAttribute("max", String.valueOf(max));
     }
+    
+    public void decrement() {
+    	Element progressElement = getElement().getFirstChildElement();
+    	
+    	String progress = progressElement.getAttribute("value");
+    	int progressInt = Integer.parseInt(progress);
+    	
+    	progressElement.setAttribute("value", String.valueOf(--progressInt));	
+    }
  
     /**
      * Remove the progress indicator values.  On firefox, this causes the
@@ -54,5 +63,9 @@ public class ProgressBar extends HTML
     
     public static void SetProgress(int value, int max) {
     	WebTasks.progressBar.setProgress(value,  max);
+    }
+    
+    public static void Decrement() {
+    	WebTasks.progressBar.decrement();
     }
 }
